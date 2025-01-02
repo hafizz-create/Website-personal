@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Limas</title>
+    <style>
+        /* Reset Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4facfe, #4e02ff);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px 30px;
+            width: 350px;
+            text-align: center;
+        }
+
+        /* Heading */
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Input Styles */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        /* Button */
+        button {
+            background: linear-gradient(135deg, #4e02ff, #00f2fe);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Result */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung Volume Limas</h1>
+        <form id="limasForm">
+            <div class="input-group">
+                <label for="luasAlas">Luas Alas (cm²)</label>
+                <input type="number" id="luasAlas" placeholder="Masukkan luas alas" required>
+            </div>
+            <div class="input-group">
+                <label for="tinggi">Tinggi (cm)</label>
+                <input type="number" id="tinggi" placeholder="Masukkan tinggi" required>
+            </div>
+            <button type="button" onclick="hitungVolume()">Hitung Volume</button>
+        </form>
+        <div class="result" id="result">
+            Volume limas akan muncul di sini.
+        </div>
+    </div>
+
+    <script>
+        function hitungVolume() {
+            const luasAlas = parseFloat(document.getElementById("luasAlas").value);
+            const tinggi = parseFloat(document.getElementById("tinggi").value);
+            if (isNaN(luasAlas) || isNaN(tinggi)) {
+                document.getElementById("result").textContent = "Harap masukkan angka yang valid.";
+                return;
+            }
+            const volume = (1 / 3) * luasAlas * tinggi;
+            document.getElementById("result").textContent = `Volume limas adalah ${volume.toFixed(2)} cm³.`;
+        }
+    </script>
+</body>
+</html>

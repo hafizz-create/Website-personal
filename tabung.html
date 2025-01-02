@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Volume Tabung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            color: #333;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            border-radius: 8px;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 80%;
+            max-width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #4e02ff, #00f2fe);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung Volume Tabung</h1>
+        <p>Masukkan jari-jari alas dan tinggi tabung dalam cm :</p>
+        <form onsubmit="return false;">
+            <label for="radius">Jari-jari (cm):</label><br>
+            <input type="number" id="radius" step="0.01" placeholder="Masukkan jari-jari" required><br>
+            <label for="height">Tinggi (cm):</label><br>
+            <input type="number" id="height" step="0.01" placeholder="Masukkan tinggi" required><br>
+            <button onclick="hitungVolume()">Hitung Volume</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function hitungVolume() {
+            // Ambil nilai jari-jari dan tinggi dari input
+            const radius = parseFloat(document.getElementById("radius").value);
+            const height = parseFloat(document.getElementById("height").value);
+
+            // Validasi input
+            if (isNaN(radius) || isNaN(height) || radius <= 0 || height <= 0) {
+                alert("Masukkan nilai yang valid untuk jari-jari dan tinggi!");
+                return;
+            }
+
+            // Rumus volume tabung: V = π * r^2 * t
+            const volume = Math.PI * Math.pow(radius, 2) * height;
+
+            // Tampilkan hasil
+            document.getElementById("output").innerText = 
+                `Volume Tabung: ${volume.toFixed(2)} cm³`;
+        }
+    </script>
+</body>
+</html>

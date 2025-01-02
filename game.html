@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math riddles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+        }
+        .levels-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        .level-button {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .level-button.locked {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+        .level-button:hover:not(.locked) {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>MATH RIDDLES</h1>
+    <div class="levels-container">
+        <a href="level1.html" class="level-button" id="level1">1</a>
+        <a href="#" class="level-button locked" id="level2">2</a>
+        <a href="#" class="level-button locked" id="level3">3</a>
+        <a href="#" class="level-button locked" id="level4">4</a>
+        <a href="#" class="level-button locked" id="level5">5</a>
+        <a href="#" class="level-button locked" id="level6">6</a>
+        <a href="#" class="level-button locked" id="level7">7</a>
+        <a href="#" class="level-button locked" id="level8">8</a>        
+    </div>
+
+    <script>
+        // Fungsi untuk mengatur status level berdasarkan progres
+        function updateLevelStatus() {
+            for (let i = 1; i <= 8; i++) {
+                const levelButton = document.getElementById(`level${i}`);
+                const levelCompleted = localStorage.getItem(`level${i - 1}`) === 'completed' || i === 1;
+
+                if (levelCompleted) {
+                    levelButton.href = `level${i}.html`;
+                    levelButton.classList.remove('locked');
+                }
+            }
+        }
+
+        // Jalankan fungsi saat halaman dimuat
+        updateLevelStatus();
+    </script>
+</body>
+</html>

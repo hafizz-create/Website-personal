@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Luas Segitiga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #4facfe, #4e02ff);
+            color: #333;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #4e02ff, #00f2fe);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hitung Luas Segitiga</h2>
+    <label for="base">Alas (cm):</label>
+    <input type="number" id="base" placeholder="Masukkan alas segitiga">
+        
+    <label for="height">Tinggi (cm):</label>
+    <input type="number" id="height" placeholder="Masukkan tinggi segitiga">
+    
+    <button onclick="calculateArea()">Hitung Luas</button>
+    
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function calculateArea() {
+        const base = document.getElementById('base').value;
+        const height = document.getElementById('height').value;
+
+        if (base && height) {
+            const area = 0.5 * base * height;
+            document.getElementById('result').textContent = 'Luas Segitiga: ' + area + ' cm²';
+        } else {
+            document.getElementById('result').textContent = 'Harap masukkan nilai alas dan tinggi.';
+        }
+    }
+</script>
+
+</body>
+</html>

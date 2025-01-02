@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math riddles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1e1e1e;
+            color: #fff;
+            overflow: hidden;
+        }
+        .container {
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 2px solid #777;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+
+        .menu-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+        .menu-button:hover {
+            background: #e64a19;
+        }
+
+        .success-message {
+            display: none;
+            font-size: 24px;
+            color: #00ff00;
+            margin-top: 20px;
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .next-level {
+            display: none;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background: #ff5722;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            animation: fadeIn 1s ease forwards;
+            transition: background 0.3s ease;
+        }
+        .next-level:hover {
+            background: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Level 7</h1>
+        <p class="question">1783, 3178, 8317, ?</p>
+        <input type="text" id="answer" placeholder="Your answer">
+        <button onclick="checkAnswer()">Submit</button>
+        <a href="game.html" class="menu-button">Back to Menu</a>
+        <div class="success-message" id="successMessage">Correct! Prepare for Level 7!</div>
+        <a href="level8.html" class="next-level" id="nextLevel">Go to Level 8</a>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value;
+
+            if (parseInt(answer) === 7831) {
+                // Tampilkan pesan sukses
+                const successMessage = document.getElementById('successMessage');
+                const nextLevel = document.getElementById('nextLevel');
+                
+                successMessage.style.display = 'block'; // Tampilkan pesan
+                nextLevel.style.display = 'block';     // Tampilkan tombol level berikutnya
+                
+                // Tandai Level 7 selesai
+                localStorage.setItem('level7', 'completed');
+
+                // Arahkan ke level berikutnya setelah beberapa detik (opsional)
+                setTimeout(() => {
+                    window.location.href = 'level8.html';
+                }, 3000);
+            } else {
+                alert('Incorrect. Try again!');
+            }
+        }
+    </script>
+</body>
+</html>

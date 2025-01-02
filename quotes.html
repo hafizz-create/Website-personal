@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata-Kata Mutiara</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quote-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 10px; /* Memperbesar kolom ke bawah */
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-container::before {
+            content: '❝';
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quote-container::after {
+            content: '❞';
+            font-size: 5rem;
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .author {
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #FFFFFF; /* Warna lebih terang tanpa transparansi */
+            letter-spacing: 1px;
+        }
+
+        .back-home {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background: #e67e22;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-home:hover {
+            background: #d35400;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hand-icon {
+            font-size: 3.5rem;
+            margin-left: 10px;            
+            margin-top: 5px; /* Penyesuaian vertikal jika diperlukan */
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>PAHAM!!?</h1>
+    <span class="hand-icon">✋✋✋</span>
+    
+    <div class="quote-container">
+        <p class="quote">"Dalam situasi apapun jangan biarkan emosimu mengalahkan kecerdasanmu."</p>
+        <p class="author">- Buya hamka</p>
+    </div>
+
+    <div class="quote-container">
+        <p class="quote">"Kebahagian bukanlah sesuatu yang sudah jadi, Itu berasal dari tindakan kamu sendiri."</p>
+        <p class="author">- Dalai Lama</p>
+    </div>
+
+    <div class="quote-container">
+        <p class="quote">"Jangan takut gagal. Takutlah untuk tidak mencoba."</p>
+        <p class="author">- Roy T. Bennett</p>
+    </div>
+
+    <a href="index.html" class="back-home">Kembali ke Beranda</a>
+</body>
+</html>

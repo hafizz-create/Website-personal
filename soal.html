@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Menghitung Volume</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 700px;
+            width: 90%;
+            position: relative;
+        }
+        h1 {
+            font-size: 28px;
+            color: #ffeaa7;
+            margin-bottom: 20px;
+        }
+        .question, .image-container, .input-answer, .submit-btn {
+            margin-bottom: 20px;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff7675;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        .image-container svg {
+            width: 300px;
+            height: auto;
+        }
+        .input-answer input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ffeaa7;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            outline: none;
+        }
+        .start-btn, .submit-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #6c5ce7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .start-btn:hover, .submit-btn:hover {
+            background: #00cec9;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .celebration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .celebration h1 {
+            color: #ffeaa7;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="timer" id="timer">Waktu: 60s</div>
+        <h1>Soal Menghitung Volume</h1>
+        <button class="start-btn" onclick="startTest()">Mulai Tes</button>
+        
+        <div class="question" style="display: none;">
+            Hitunglah volume sebuah balok dengan panjang 12 cm, lebar 8 cm, dan tinggi 6 cm.
+        </div>
+        <div class="image-container" style="display: none;">
+            <!-- Gambar balok -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+                <rect x="30" y="30" width="120" height="60" fill="#ffeaa7" stroke="#ff7675" stroke-width="2"/>
+                <text x="50" y="90" fill="#fff" font-size="12" font-weight="bold">8 cm</text>
+                <text x="100" y="25" fill="#fff" font-size="12" font-weight="bold">12 cm</text>
+                <text x="140" y="70" fill="#fff" font-size="12" font-weight="bold" transform="rotate(90 140 70)">6 cm</text>
+            </svg>
+        </div>
+        <div class="input-answer" style="display: none;">
+            <input type="number" id="answer" placeholder="Masukkan jawaban Anda">
+        </div>
+        <button class="submit-btn" style="display: none;" onclick="checkAnswer()">Submit</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="celebration" id="celebration">
+        <h1>Selamat! Jawaban Anda Benar 🎉</h1>
+    </div>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+
+        function startTest() {
+            document.querySelector('.start-btn').style.display = 'none';
+            document.querySelector('.question').style.display = 'block';
+            document.querySelector('.image-container').style.display = 'block';
+            document.querySelector('.input-answer').style.display = 'block';
+            document.querySelector('.submit-btn').style.display = 'block';
+
+            timerInterval = setInterval(() => {
+                const timerElement = document.getElementById("timer");
+                timeLeft--;
+                timerElement.textContent = `Waktu: ${timeLeft}s`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    document.querySelector('.submit-btn').disabled = true;
+                    document.getElementById("result").textContent = "Waktu habis! Anda gagal.";
+                }
+            }, 1000);
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById("answer").value);
+            const correctAnswer = 12 * 8 * 6; // Volume balok
+            if (userAnswer === correctAnswer) {
+                clearInterval(timerInterval);
+                document.getElementById("celebration").style.display = "flex";
+            } else {
+                document.getElementById("result").textContent = "Jawaban salah. Coba lagi!";
+            }
+        }        
+    </script>
+</body>
+</html>

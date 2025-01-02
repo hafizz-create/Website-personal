@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas Lingkaran</title>
+    <style>
+        /* Reset tampilan default */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4facfe, #4e02ff);
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Pusat horizontal */
+            align-items: center; /* Pusat vertikal */
+            background-color: #f0f8ff; /* Warna latar */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #ffffff; /* Warna latar kotak */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #4e02ff, #00f2fe);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hitung Luas Lingkaran</h2>
+        <p>Masukkan jari-jari lingkaran (dalam cm):</p>
+        <input type="number" id="radius" placeholder="Masukan Nilai" step="any">
+        <button onclick="hitungLuas()">Hitung Luas</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function hitungLuas() {
+            // Ambil nilai jari-jari dari input
+            const radius = parseFloat(document.getElementById("radius").value);
+            
+            // Validasi input
+            if (isNaN(radius) || radius <= 0) {
+                document.getElementById("result").innerText = "Masukkan angka yang valid dan positif!";
+                return;
+            }
+            
+            // Rumus luas lingkaran: π * r^2
+            const luas = Math.PI * Math.pow(radius, 2);
+            
+            // Tampilkan hasil dalam dua desimal
+            document.getElementById("result").innerText = 
+                `Luas lingkaran dengan jari-jari ${radius} cm adalah ${luas.toFixed(2)} cm²`;
+        }
+    </script>
+</body>
+</html>

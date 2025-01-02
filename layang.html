@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas Layang-Layang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            height: 100vh;
+            background: linear-gradient(135deg, #4facfe, #4e02ff);
+            color: #333;  
+            justify-content: center;         
+            align-items: center; 
+        }
+        .container {
+            background: #fff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #4e02ff, #00f2fe);
+            transition: all 0.3s ease;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hitung Luas Layang-Layang</h2>
+        <div class="form-group">
+            <label for="diagonal1">Diagonal 1 (d1):</label>
+            <input type="number" id="diagonal1" placeholder="Masukkan panjang diagonal 1">
+        </div>
+        <div class="form-group">
+            <label for="diagonal2">Diagonal 2 (d2):</label>
+            <input type="number" id="diagonal2" placeholder="Masukkan panjang diagonal 2">
+        </div>
+        <button class="btn" onclick="hitungLuas()">Hitung Luas</button>
+        <div class="result" id="result">Luas: -</div>
+    </div>
+
+    <script>
+        function hitungLuas() {
+            const diagonal1 = parseFloat(document.getElementById('diagonal1').value);
+            const diagonal2 = parseFloat(document.getElementById('diagonal2').value);
+
+            if (isNaN(diagonal1) || isNaN(diagonal2) || diagonal1 <= 0 || diagonal2 <= 0) {
+                document.getElementById('result').textContent = 'Harap masukkan nilai diagonal yang valid.';
+                return;
+            }
+
+            const luas = (diagonal1 * diagonal2) / 2;
+            document.getElementById('result').textContent = `Luas: ${luas.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

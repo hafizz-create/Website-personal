@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="images/brand-logo.png">
+
+    <title>Sigma Scope</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          background: linear-gradient(135deg, #4facfe, #4e02ff);
+          color: #333;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .container {
+          max-width: 400px;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          background-color: #f9f9f9;
+        }
+        input, button {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+        button {
+          background: linear-gradient(135deg, #4e02ff, #00f2fe);
+          color: white;
+          cursor: pointer;
+        }
+        button:hover {
+          background: linear-gradient(135deg, #00f2fe, #4e02ff);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <center><h2>Hitung Luas Persegi Panjang</h2></center>
+        <form id="formLuas">
+          <label for="panjang">Panjang (cm):</label>
+          <input type="number" id="panjang" placeholder="Masukkan panjang" required>
+    
+          <label for="lebar">Lebar (cm):</label>
+          <input type="number" id="lebar" placeholder="Masukkan lebar" required>
+    
+          <button type="button" onclick="hitungLuas()">Hitung Luas</button>
+        </form>
+        <h4 id="hasil">Luas: -</h4>
+      </div>
+    
+      <script>
+        function hitungLuas() {
+          // Ambil nilai input
+          const panjang = parseFloat(document.getElementById("panjang").value);
+          const lebar = parseFloat(document.getElementById("lebar").value);
+    
+          // Validasi input
+          if (!isNaN(panjang) && !isNaN(lebar) && panjang > 0 && lebar > 0) {
+            // Hitung luas
+            const luas = panjang * lebar;
+            // Tampilkan hasil
+            document.getElementById("hasil").innerText = `Luas: ${luas} cm²`;
+          } else {
+            // Tampilkan pesan kesalahan
+            document.getElementById("hasil").innerText = "Masukkan nilai panjang dan lebar yang valid!";
+          }
+        }
+      </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

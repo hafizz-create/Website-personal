@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luas Belah Ketupat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #4facfe, #4e02ff);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+        .container {
+            background: #fff;
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #4e02ff, #00f2fe);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4e02ff);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hitung Luas Belah Ketupat</h2>
+    <label for="diagonal1">Diagonal 1 (d1):</label>
+    <input type="number" id="diagonal1" placeholder="Masukkan panjang diagonal 1">
+
+    <label for="diagonal2">Diagonal 2 (d2):</label>
+    <input type="number" id="diagonal2" placeholder="Masukkan panjang diagonal 2">
+
+    <button onclick="hitungLuas()">Hitung Luas</button>
+
+    <div id="hasil" class="result"></div>
+</div>
+
+<script>
+    function hitungLuas() {
+        const diagonal1 = parseFloat(document.getElementById('diagonal1').value);
+        const diagonal2 = parseFloat(document.getElementById('diagonal2').value);
+
+        if (isNaN(diagonal1) || isNaN(diagonal2)) {
+            document.getElementById('hasil').textContent = "Mohon masukkan nilai yang valid!";
+            return;
+        }
+
+        const luas = 0.5 * diagonal1 * diagonal2;
+        document.getElementById('hasil').textContent = `Luas belah ketupat adalah ${luas}`;
+    }
+</script>
+
+</body>
+</html>
